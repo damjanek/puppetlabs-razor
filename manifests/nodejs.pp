@@ -5,10 +5,13 @@
 #   Manages nodejs and npm package for razor.
 #
 class razor::nodejs(
-  $directory
+  $directory,
+  $manage_repo = true,
 ) {
-  include nodejs
-  
+  class {'nodejs':
+    manage_repo => $manage_repo,
+  }
+
   nodejs::npm { "${directory}:express":
     ensure  => present,
     version => '2.5.11',
