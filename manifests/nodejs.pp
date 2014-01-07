@@ -8,7 +8,7 @@ class razor::nodejs(
   $directory,
   $manage_repo = true,
 ) {
-  class {'nodejs':
+  class {'::nodejs':
     manage_repo => $manage_repo,
   }
 
